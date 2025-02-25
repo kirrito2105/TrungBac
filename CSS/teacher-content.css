@@ -1,0 +1,117 @@
+.page-title {
+    position: relative;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+    color: white;
+    margin: 0 auto 4rem;
+    overflow: hidden;
+}
+
+.page-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../DATA/pattern.png');
+    opacity: 0.1;
+}
+
+.page-title h1 {
+    font-size: 2.2rem;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.teacher-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 0 auto;
+}
+
+figure img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    margin: 0 auto;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+figure img:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+figcaption {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #34495e;
+    line-height: 1.6;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    position: relative;
+    max-width: 80%;
+    margin: 2rem auto 0;
+}
+
+figcaption::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+
+@media (max-width: 768px) {
+    .page-title h1 {
+        font-size: 1.5rem;
+    }
+
+    figcaption {
+        font-size: 1rem;
+        max-width: 95%;
+    }
+}
+
+/* Animation for content loading */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-title, figure {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}

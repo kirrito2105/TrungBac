@@ -13,13 +13,21 @@ body {
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
 }
 
 .Teacher {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    justify-content: center;    
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .Boss {
@@ -30,44 +38,82 @@ body {
 }
 
 .MinhHoaLop {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    display: flex;
     justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.MinhHoaLop figure {
+    flex: 0 1 300px;
 }
 
 .MinhHoaTo {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
     justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.MinhHoaTo figure {
+    flex: 0 1 250px;
 }
 
 figure {
-    background: #ffffff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 0 auto;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
     text-align: center;
 }
 
+figure:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
 figure img {
-    max-width: 100%;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 figure img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 figure figcaption {
     margin-top: 15px;
-    font-size: 16px;
-    color: #555;
+    padding: 10px;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+figcaption {
+    margin-top: 10px;
+    color: #666;
     font-style: italic;
 }
 
@@ -75,16 +121,23 @@ footer {
     margin-top: auto;
     text-align: center;
     padding: 20px;
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 10px 0;
 }
 
 footer a {
-    color: #00aced;
+    color: #0066cc;
+    text-decoration: none;
 }
 
 footer a:hover {
-    color: #007bb5;
+    text-decoration: underline;
 }
-
 
 header {
     position: sticky;
@@ -316,9 +369,91 @@ header label {
 }
 
 .contact-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-info {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-item .material-symbols-outlined {
+    margin-right: 15px;
+    color: #007bff;
+}
+
+.map-container {
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact-container h1 {
@@ -381,4 +516,162 @@ header label {
 
 .contact-form button:hover {
     background: #45a049;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+    .Teacher, .MinhHoaTo {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 10px;
+    }
+
+    figure {
+        padding: 10px;
+    }
+
+    figure figcaption {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Teacher, .MinhHoaTo {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+}
+
+/* Main content styles */
+h1 {
+    color: #333;
+    margin: 30px 0;
+    font-size: 2.2em;
+    font-family: 'Arial', sans-serif;
+}
+
+h3 {
+    color: #555;
+    line-height: 1.6;
+    margin: 20px 50px;
+    text-align: justify;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        margin: 20px 20px;
+        font-size: 0.9em;
+    }
+
+    .MinhHoaLop, .MinhHoaTo {
+        gap: 15px;
+    }
+
+    figure img {
+        max-width: 90%;
+    }
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+section h2 {
+    text-align: center;
+    color: #2c81cc;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #2c81cc;
+}
+
+.teacher-profile {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.teacher-profile img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.leader-group, .vice-group, .team-head-group, .team-vice-group {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 10px;
+    }
+
+    .hero-section {
+        padding: 20px 10px;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    .teacher-profile {
+        max-width: 300px;
+    }
+}
+
+/* Page Transition Effects */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: all;
 }
