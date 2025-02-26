@@ -675,3 +675,91 @@ section h2::after {
     opacity: 1;
     pointer-events: all;
 }
+
+/* Banner styles */
+.banner-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.banner-container figure {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    display: block;
+}
+
+.banner-container img {
+    width: 100%;
+    height: 600px; /* Tăng chiều cao */
+    object-fit: contain; /* Thay đổi thành contain để giữ tỷ lệ */
+    display: block;
+    transition: transform 1s ease;
+    background: #000; /* Nền đen để tăng độ tương phản */
+}
+
+.banner-container img:hover {
+    transform: scale(1.02);
+}
+
+.banner-container figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5), transparent);
+    color: white;
+    font-size: 1.8em;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    letter-spacing: 1px;
+}
+
+.banner-container figure:hover figcaption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments for banner */
+@media (max-width: 1200px) {
+    .banner-container img {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-container img {
+        height: 400px;
+    }
+    
+    .banner-container figcaption {
+        font-size: 1.4em;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-container img {
+        height: 300px;
+    }
+    
+    .banner-container figcaption {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+}
